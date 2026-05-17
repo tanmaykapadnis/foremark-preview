@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-portfolio-bg: #ffffff;
+  --color-portfolio-white: #ffffff;
+  --color-portfolio-dark: #0d0d0d;
+  --color-portfolio-text: #111111;
+  --color-portfolio-muted: #666666;
+  --color-portfolio-gray: #999999;
+  --color-portfolio-orange: #ff5c00;
+  --color-portfolio-gold: var(--color-portfolio-orange);
+  --color-portfolio-blue: #7f98fa;
+  --color-portfolio-green: #63c58f;
+  
+  --font-geist: "Geist", sans-serif;
+  
+  --radius-3xl: 16px;
+  --radius-4xl: 20px;
+}
+
+:root {
+  font-family: var(--font-geist);
+  background-color: var(--color-portfolio-bg);
+  color: var(--color-portfolio-text);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-full px-8 py-4 font-medium transition-all duration-300 bg-portfolio-dark text-white hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-ghost {
+    @apply rounded-full px-8 py-4 font-medium transition-all duration-300 bg-transparent border border-portfolio-dark/10 text-portfolio-dark hover:bg-portfolio-dark/5;
+  }
+  
+  .section-label {
+    @apply uppercase tracking-[0.2em] text-[10px] font-semibold text-portfolio-muted mb-4 block;
+  }
+}
+
+/* Custom smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Grainy texture overlay */
+.grainy-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
